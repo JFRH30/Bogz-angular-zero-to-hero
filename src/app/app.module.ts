@@ -1,16 +1,34 @@
+// Modules
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
+import { AppRoutingModule } from './modules/app-routing.module';
 
+// Components
 import { AppComponent } from './app.component';
+import { HeaderComponent } from './components/header/header.component';
+
+// Page Components
+import { HomeComponent } from './pages/home/home.component';
+import { AboutComponent } from './pages/about/about.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent,    // pages Component
+    AboutComponent,
+    HeaderComponent   // universal Component
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule,
+    AppRoutingModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+
+  ],
+  bootstrap: [
+    AppComponent
+  ]
 })
 export class AppModule { }
