@@ -1,2 +1,10 @@
 # Bogz Zero to Hero
-this is a project made because im bored HAHAHAHA
+this is a project i am practicing feel free to join the ride HAHAHA
+
+# What's included here
+- Bootstrap 4
+- JSON Server
+
+# Running the app?
+- ng serve --open
+- npm run mork:serve
