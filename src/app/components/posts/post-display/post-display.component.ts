@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
-import { UserModel } from '../../../models/user.model';
-import { UsersService } from '../../../services/users.service';
+import { PostModel } from '../../../models/post.model';
+import { PostsService } from '../../../services/posts.service';
 
 @Component({
     selector: 'app-post-display',
@@ -9,19 +10,21 @@ import { UsersService } from '../../../services/users.service';
 })
 
 export class PostDisplayComponent implements OnInit {
-    users: UserModel[]
+    post: PostModel;
 
     constructor (
-        private usersService: UsersService
+        private route: ActivatedRoute,
+        private postsService: PostsService
     ) {
-        
+        this.getPost()
     }
 
-    getUsersWithPost (): void {
-        this.usersService.getUsersWithPost().subscribe( users => this.users = users )
+   getPost (): void {
+        const id: number =+ this.route.snapshot.paramMap.get('id')
+        this.postsService.getPost(id)
+            .subscribe(post => this.post = post)
     }
 
     ngOnInit () {
-        this.getUsersWithPost()
     }
 }

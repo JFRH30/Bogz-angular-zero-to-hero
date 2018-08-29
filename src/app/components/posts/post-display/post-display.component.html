@@ -1,9 +1,12 @@
-<div class="card m-3" *ngFor="let user of users">
-    <div class="card-body">
-        <div *ngFor="let post of user.posts">
-            <h4>{{ post.title }}</h4>
-            <small><strong>Posted By :</strong> {{ user.name }}</small>
-            <p>{{ post.body }}</p>
+<div class="container" *ngIf="post">
+    <section class="row">
+        <div class="col-md-10">
+            <div class="card m-3">
+                <div class="card-body">
+                    <h4 class="card-title">{{ post.title }}</h4>
+                    <p>{{ post.body }}</p>
+                </div>
+            </div>
         </div>
-    </div>
+    </section>
 </div>
