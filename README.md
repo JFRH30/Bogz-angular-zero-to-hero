@@ -8,5 +8,5 @@ this is a project i am practicing feel free to join the ride HAHAHA
 # Running the app?
 ```bash
 - ng serve --open
-- npm run mork:serve
+- npm run mock:serve
 ```
