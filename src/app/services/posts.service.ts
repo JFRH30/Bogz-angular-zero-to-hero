@@ -21,11 +21,15 @@ export class PostsService {
         private http: HttpClient
     ) { }
 
+    getPost (id: number): Observable<PostModel> {
+        return this.http.get<PostModel>( `${this.postsUrl}/${id}` )
+    }
+    
     getPosts (): Observable<PostModel[]> {
         return this.http.get<PostModel[]>( this.postsUrl )
     }
 
     getPostsWithUser (): Observable<PostModel[]> {
-        return this.http.get<PostModel[]>(`${this.postsUrl}?_embed=comments`)
+        return this.http.get<PostModel[]>( `${this.postsUrl}?_embed=comments` )
     }
 }
