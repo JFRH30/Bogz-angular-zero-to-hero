@@ -21,7 +21,7 @@ export class PostDisplayComponent implements OnInit {
 
    getPost (): void {
         const id: number =+ this.route.snapshot.paramMap.get('id')
-        this.postsService.getPost(id)
+        this.postsService.getPostWithComments(id)
             .subscribe(post => this.post = post)
     }
 

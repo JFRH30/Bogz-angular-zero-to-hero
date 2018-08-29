@@ -21,8 +21,8 @@ export class PostsService {
         private http: HttpClient
     ) { }
 
-    getPost (id: number): Observable<PostModel> {
-        return this.http.get<PostModel>( `${this.postsUrl}/${id}` )
+    getPostWithComments (id: number): Observable<PostModel> {
+        return this.http.get<PostModel>( `${this.postsUrl}/${id}?_embed=comments` )
     }
     
     getPosts (): Observable<PostModel[]> {
