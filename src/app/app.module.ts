@@ -8,6 +8,7 @@ import { AppRoutingModule } from './modules/app-routing.module';
 // Components
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
+import { PostsComponent } from './components/posts/posts.component';
 import { PostDisplayComponent } from './components/posts/post-display/post-display.component';
 
 // Page Components
@@ -20,6 +21,7 @@ import { AboutComponent } from './pages/about/about.component';
     HomeComponent,    // pages Component
     AboutComponent,
     HeaderComponent,  // universal Component
+    PostsComponent,
     PostDisplayComponent
   ],
   imports: [
