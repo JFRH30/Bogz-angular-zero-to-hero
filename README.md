@@ -6,5 +6,7 @@ this is a project i am practicing feel free to join the ride HAHAHA
 - JSON Server
 
 # Running the app?
+```bash
 - ng serve --open
 - npm run mork:serve
+```
