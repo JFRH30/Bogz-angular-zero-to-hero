@@ -4,7 +4,18 @@
             <div class="card m-3">
                 <div class="card-body">
                     <h4 class="card-title">{{ post.title }}</h4>
+                    <small>Posted By: {{ post.name }}</small>
                     <p>{{ post.body }}</p>
+                </div>
+            </div>
+            <hr>
+            <h4>Comments</h4>
+            <hr>
+            <div *ngIf="post.comments.length">
+                <div *ngFor="let comment of post.comments" class="pl-4">
+                    <h6>{{ comment.name }}</h6>
+                    <p>{{ comment.body }}</p>
+                    <hr>
                 </div>
             </div>
         </div>

@@ -3,5 +3,7 @@ export class PostModel {
     id: number;
     title: string;
     body: string;
-    users?: [{id: number, name: string, username: string, email: string}] 
+    name?: string;
+    users?: [{id: number, name: string, username: string, email: string}]
+    comments?: any
 }
