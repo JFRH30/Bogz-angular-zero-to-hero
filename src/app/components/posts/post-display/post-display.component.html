@@ -1,0 +1,9 @@
+<div class="card m-3" *ngFor="let user of users">
+    <div class="card-body">
+        <div *ngFor="let post of user.posts">
+            <h4>{{ post.title }}</h4>
+            <small><strong>Posted By :</strong> {{ user.name }}</small>
+            <p>{{ post.body }}</p>
+        </div>
+    </div>
+</div>
