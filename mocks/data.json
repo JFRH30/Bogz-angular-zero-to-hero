@@ -43,6 +43,18 @@
       "title": "Test Post",
       "body": "This is a test Post",
       "id": 4
+    },
+    {
+      "userId": 1,
+      "title": "Test post again",
+      "body": "dont know what to do hahahahaha",
+      "id": 5
+    },
+    {
+      "id": 6
+    },
+    {
+      "id": 7
     }
   ],
   "comments": [
@@ -81,6 +93,24 @@
       "userId": 1,
       "body": "test",
       "id": 6
+    },
+    {
+      "postId": 3,
+      "userId": 1,
+      "body": "dfs",
+      "id": 7
+    },
+    {
+      "postId": 2,
+      "userId": 1,
+      "body": "sdasda",
+      "id": 8
+    },
+    {
+      "postId": 5,
+      "userId": 1,
+      "body": "sdasd",
+      "id": 9
     }
   ]
 }

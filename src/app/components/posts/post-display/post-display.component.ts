@@ -26,7 +26,6 @@ export class PostDisplayComponent implements OnInit {
         private usersService: UsersService,
         private commentsService: CommentsService
     ) {
-        this.getPost()
     }
 
     getPost (): void {
@@ -39,24 +38,22 @@ export class PostDisplayComponent implements OnInit {
 
     onCommentAdded (comment: CommentModel): void {
         this.commentsService.addComment(comment)
-            .subscribe(comment => {this.comment = comment ; this.getPost()})
+            .subscribe(comment => {this.comment = comment; this.getPost() })
 
     }
 
     setName (): void {
-        if (this.post) {
-            if (this.users) {
+        if (this.post && this.users) {
+            for (const user of this.users) {
+                if (this.post.userId === user.id) { this.post.name = user.name }
                 for (const comment of this.post.comments) {
-                    for (const user of this.users) {
-                        if (this.post.userId === user.id) { this.post.name = user.name }
-                        if (comment.userId === user.id) { comment.name = user.name }
-                    }
+                    if (comment.userId === user.id) { comment.name = user.name }
                 }
             }
-
         }
     }
 
     ngOnInit () {
+        this.getPost()
     }
 }
