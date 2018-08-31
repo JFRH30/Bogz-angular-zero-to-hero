@@ -21,7 +21,11 @@ export class CommentsService {
         private http: HttpClient
     ) { }
 
-    getComments (id: number): Observable<CommentModel[]> {
-        return this.http.get<CommentModel[]>( `${this.commentsUrl}\${id}` )
+    getComments (postId: number): Observable<CommentModel[]> {
+        return this.http.get<CommentModel[]>( `${this.commentsUrl}\postId=${postId}` )
+    }
+
+    addComment (comment: CommentModel): Observable<CommentModel> {
+        return this.http.post<CommentModel>(this.commentsUrl, comment, httpOptions)
     }
 }

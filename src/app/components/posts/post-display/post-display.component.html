@@ -9,7 +9,7 @@
                 </div>
             </div>
             <hr>
-            <h4>Comments</h4>
+            <app-comments (commentAdded)="onCommentAdded($event)"></app-comments>
             <hr>
             <div *ngIf="post.comments.length">
                 <div *ngFor="let comment of post.comments" class="pl-4">

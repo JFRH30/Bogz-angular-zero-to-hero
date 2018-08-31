@@ -15,6 +15,7 @@ import { PostCreateComponent } from './components/posts/post-create/post-create.
 // Page Components
 import { HomeComponent } from './pages/home/home.component';
 import { AboutComponent } from './pages/about/about.component';
+import { CommentsComponent } from './components/comments/comments.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { AboutComponent } from './pages/about/about.component';
     HeaderComponent,  // universal Component
     PostsComponent,
     PostDisplayComponent,
-    PostCreateComponent
+    PostCreateComponent,
+    CommentsComponent
   ],
   imports: [
     BrowserModule,

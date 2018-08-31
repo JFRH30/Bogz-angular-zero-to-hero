@@ -1,0 +1,6 @@
+<div class="form-group form-inline">
+    <h4 class="col-md-4">Comments</h4>
+    <input #commentBody class="form-control col-md-6 mr-3"/>
+    <br>
+    <button class="btn btn-success col-md-1" (click)="onCommentAdded(); commentBody.value=''">Send</button>
+</div>

@@ -6,6 +6,9 @@ import { PostsService } from '../../../services/posts.service';
 
 import { UserModel } from '../../../models/user.model';
 import { UsersService } from '../../../services/users.service';
+import { CommentStmt } from '@angular/compiler';
+import { CommentsService } from '../../../services/comments.service';
+import { CommentModel } from '../../../models/comment.model';
 
 @Component({
     selector: 'app-post-display',
@@ -14,12 +17,14 @@ import { UsersService } from '../../../services/users.service';
 
 export class PostDisplayComponent implements OnInit {
     post: PostModel;
+    comment: CommentModel;
     users: UserModel[];
 
     constructor (
         private route: ActivatedRoute,
         private postsService: PostsService,
-        private usersService: UsersService
+        private usersService: UsersService,
+        private commentsService: CommentsService
     ) {
         this.getPost()
     }
@@ -30,6 +35,12 @@ export class PostDisplayComponent implements OnInit {
             .subscribe(post => { this.post = post; this.setName() } );
         this.usersService.getUsers()
             .subscribe(users => { this.users = users; this.setName() } );
+    }
+
+    onCommentAdded (comment: CommentModel): void {
+        this.commentsService.addComment(comment)
+            .subscribe(comment => {this.comment = comment ; this.getPost()})
+
     }
 
     setName (): void {

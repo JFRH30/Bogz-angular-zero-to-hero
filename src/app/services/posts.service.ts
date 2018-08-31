@@ -26,7 +26,7 @@ export class PostsService {
     }
     
     getPosts (): Observable<PostModel[]> {
-        return this.http.get<PostModel[]>( this.postsUrl )
+        return this.http.get<PostModel[]>( `${this.postsUrl}?_sort=id&_order=DESC` )
     }
 
     getPostsWithUser (): Observable<PostModel[]> {

@@ -43,7 +43,7 @@ export class PostsComponent implements OnInit {
 
     onPostAdded (post: PostModel): void {
         this.postsService.addPost(post)
-            .subscribe( post => {this.posts.push(post); this.setName()} )
+            .subscribe( post => {this.posts.unshift(post); this.setName()} )
     }
 
     ngOnInit () {
