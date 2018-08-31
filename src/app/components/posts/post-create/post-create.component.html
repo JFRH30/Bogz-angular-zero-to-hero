@@ -8,6 +8,6 @@
             <label>Body</label>
             <textarea #postBody class="form-control"></textarea>
         </div>
-        <button class="btn btn-block btn-primary" (click)="addPost({title: postTitle.value, body: postBody.value}); postTitle.value=''; postBody.value=''">Add Post</button>
+        <button class="btn btn-block btn-primary" (click)="onAddPost(); postTitle.value=''; postBody.value=''">Add Post</button>
     </div>
 </div>

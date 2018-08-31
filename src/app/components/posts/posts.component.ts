@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 import { UserModel } from '../../models/user.model';
 import { UsersService } from '../../services/users.service';
@@ -12,7 +12,7 @@ import { PostsService } from '../../services/posts.service';
 
 export class PostsComponent implements OnInit {
     users: UserModel[];
-    posts = this.postsService.posts;
+    @Input() posts: PostModel[];
 
     constructor (
         private usersService: UsersService,
@@ -39,6 +39,12 @@ export class PostsComponent implements OnInit {
                 }
             }
         }
+    }
+
+    onPostAdded (post: PostModel): void {
+        console.log(post)
+        this.postsService.addPost(post)
+            .subscribe( post => {this.posts.push(post); this.setName()} )
     }
 
     ngOnInit () {

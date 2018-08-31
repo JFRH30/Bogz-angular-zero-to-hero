@@ -1,7 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild, Output, EventEmitter } from '@angular/core';
 
 import { PostModel } from '../../../models/post.model';
-import { PostsService } from '../../../services/posts.service';
 
 @Component({
     selector: 'app-post-create',
@@ -9,14 +8,17 @@ import { PostsService } from '../../../services/posts.service';
 })
 
 export class PostCreateComponent {
+    @ViewChild('postTitle') postTitle: ElementRef;
+    @ViewChild('postBody') postBody: ElementRef;
+    @Output() postAdded = new EventEmitter<PostModel>()
 
-    constructor (
-        private postsService: PostsService
-    ) {}
+    constructor ( ) {}
 
-    addPost (newPost: PostModel) {
-        newPost.userId = 1;
-        this.postsService.addPost(newPost)
-            .subscribe( post => this.postsService.posts.push(post) )
+    onAddPost (): void {
+        const userId = 1
+        const title: string = this.postTitle.nativeElement.value;
+        const body: string = this.postBody.nativeElement.value;
+        const newPost = {userId: userId, title: title, body: body}
+        this.postAdded.emit(newPost)
     }
 }

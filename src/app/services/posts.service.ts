@@ -15,7 +15,6 @@ const httpOptions = {
 })
 
 export class PostsService {
-    posts: PostModel[];
     postsUrl: string = 'http://localhost:3000/posts';
 
     constructor (
