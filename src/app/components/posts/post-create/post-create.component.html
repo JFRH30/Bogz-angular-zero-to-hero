@@ -1,0 +1,13 @@
+<div class="card">
+    <div class="card-body">
+        <div class="form-group">
+            <label>Title</label>
+            <input #postTitle class="form-control"/>
+        </div>
+        <div class="form-group">
+            <label>Body</label>
+            <textarea #postBody class="form-control"></textarea>
+        </div>
+        <button class="btn btn-block btn-primary" (click)="addPost({title: postTitle.value, body: postBody.value}); postTitle.value=''; postBody.value=''">Add Post</button>
+    </div>
+</div>

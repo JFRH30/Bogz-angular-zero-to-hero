@@ -1,8 +1,8 @@
-<div class="card m-3" *ngFor="let user of users">
-    <div class="card-body">
-        <div *ngFor="let post of user.posts">
+<div *ngIf="posts">
+    <div class="card m-3" *ngFor="let post of posts">
+        <div class="card-body">
             <h4>{{ post.title }}</h4>
-            <small>Posted By : {{ user.name }}</small>
+            <small>Posted By : {{ post.name }}</small>
             <p>
                 {{ post.body.substring(0,300) }}
                 <span *ngIf="post.body.length > 300 ">...</span>

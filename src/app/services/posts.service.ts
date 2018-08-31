@@ -15,6 +15,7 @@ const httpOptions = {
 })
 
 export class PostsService {
+    posts: PostModel[];
     postsUrl: string = 'http://localhost:3000/posts';
 
     constructor (
@@ -31,5 +32,9 @@ export class PostsService {
 
     getPostsWithUser (): Observable<PostModel[]> {
         return this.http.get<PostModel[]>( `${this.postsUrl}?_embed=comments` )
+    }
+
+    addPost (post: PostModel): Observable<any> {
+        return this.http.post<any>( this.postsUrl, post, httpOptions )
     }
 }

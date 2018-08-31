@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 import { UserModel } from '../../models/user.model';
 import { UsersService } from '../../services/users.service';
+import { PostModel } from '../../models/post.model';
+import { PostsService } from '../../services/posts.service';
 
 @Component({
     selector: 'app-posts',
@@ -9,19 +11,37 @@ import { UsersService } from '../../services/users.service';
 })
 
 export class PostsComponent implements OnInit {
-    users: UserModel[]
+    users: UserModel[];
+    posts = this.postsService.posts;
 
     constructor (
-        private usersService: UsersService
+        private usersService: UsersService,
+        private postsService: PostsService
     ) {
         
     }
 
-    getUsersWithPost (): void {
-        this.usersService.getUsersWithPost().subscribe( users => this.users = users )
+    getPostsWithUser (): void {
+        this.usersService.getUsers()
+            .subscribe( users => {this.users = users; this.setName()} )
+        
+        this.postsService.getPosts()
+            .subscribe( posts => {this.posts = posts; this.setName()} )
+    }
+
+    setName (): void {
+        if (this.posts && this.users) {
+            for (let post of this.posts) {
+                for (let user of this.users) {
+                    if (post.userId === user.id) {
+                        post.name = user.name
+                    }
+                }
+            }
+        }
     }
 
     ngOnInit () {
-        this.getUsersWithPost()
+        this.getPostsWithUser()
     }
 }

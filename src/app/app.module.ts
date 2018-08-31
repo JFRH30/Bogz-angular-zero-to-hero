@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { PostsComponent } from './components/posts/posts.component';
 import { PostDisplayComponent } from './components/posts/post-display/post-display.component';
+import { PostCreateComponent } from './components/posts/post-create/post-create.component';
 
 // Page Components
 import { HomeComponent } from './pages/home/home.component';
@@ -22,7 +23,8 @@ import { AboutComponent } from './pages/about/about.component';
     AboutComponent,
     HeaderComponent,  // universal Component
     PostsComponent,
-    PostDisplayComponent
+    PostDisplayComponent,
+    PostCreateComponent
   ],
   imports: [
     BrowserModule,
