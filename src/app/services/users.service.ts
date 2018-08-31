@@ -15,6 +15,8 @@ const httpOptions = {
 })
 
 export class UsersService {
+    activatedUser: UserModel;
+
     usersUrl: string = 'http://localhost:3000/users';
 
     constructor (
@@ -23,9 +25,5 @@ export class UsersService {
 
     getUsers (): Observable<UserModel[]> {
         return this.http.get<UserModel[]>(this.usersUrl)
-    }
-
-    getUsersWithPost (): Observable<UserModel[]> {
-        return this.http.get<UserModel[]>( `${this.usersUrl}?_embed=posts` )
     }
 }
