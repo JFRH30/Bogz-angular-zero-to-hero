@@ -42,7 +42,6 @@ export class PostsComponent implements OnInit {
     }
 
     onPostAdded (post: PostModel): void {
-        console.log(post)
         this.postsService.addPost(post)
             .subscribe( post => {this.posts.push(post); this.setName()} )
     }
